@@ -40,11 +40,11 @@
 
         layer_1 {
             bindings = <
-&trans  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &bt BT_PRV    &bt BT_NXT  &kp C_AL_FILE_BROWSER    &Hold_Tap_KP_and_KP F10 DOLLAR      &Hold_Tap_KP_and_KP F11 LEFT_PARENTHESIS  &Hold_Tap_KP_and_KP F12 RIGHT_PARENTHESIS  &trans     &kp DELETE    &to 0
-&trans  &kp C_VOLUME_UP       &kp HOME              &kp UP_ARROW  &kp END     &kp PAGE_UP              &Hold_Tap_KP_and_KP F7 KP_NUMBER_7  &Hold_Tap_KP_and_KP F8 KP_NUMBER_8        &Hold_Tap_KP_and_KP F9 KP_NUMBER_9         &kp MINUS  &kp FSLH      &trans
-&trans  &kp C_VOL_DN          &kp LEFT              &kp DOWN      &kp RIGHT   &kp PAGE_DOWN            &Hold_Tap_KP_and_KP F4 KP_NUMBER_4  &Hold_Tap_KP_and_KP F5 KP_NUMBER_5        &Hold_Tap_KP_and_KP F6 KP_NUMBER_6         &kp PLUS   &kp ASTERISK  &trans
-&trans  &trans                &trans                &trans        &trans      &trans                   &Hold_Tap_KP_and_KP F1 KP_NUMBER_1  &Hold_Tap_KP_and_KP F2 KP_NUMBER_2        &Hold_Tap_KP_and_KP F3 KP_NUMBER_3         &kp EQUAL  &kp PERIOD    &Hold_Tap_KP_and_KP RIGHT_CONTROL BACKSPACE
-                                                    &trans        &trans      &trans                   &trans                              &kp KP_NUMBER_0                           &kp BACKSPACE
+&trans  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &bt BT_PRV    &bt BT_NXT  &bt BT_CLR       &Hold_Tap_KP_and_KP F10 DOLLAR      &Hold_Tap_KP_and_KP F11 LEFT_PARENTHESIS  &Hold_Tap_KP_and_KP F12 RIGHT_PARENTHESIS  &trans     &kp DELETE    &to 0
+&trans  &kp C_VOLUME_UP       &kp HOME              &kp UP_ARROW  &kp END     &kp PAGE_UP      &Hold_Tap_KP_and_KP F7 KP_NUMBER_7  &Hold_Tap_KP_and_KP F8 KP_NUMBER_8        &Hold_Tap_KP_and_KP F9 KP_NUMBER_9         &kp MINUS  &kp FSLH      &trans
+&trans  &kp C_VOL_DN          &kp LEFT              &kp DOWN      &kp RIGHT   &kp PAGE_DOWN    &Hold_Tap_KP_and_KP F4 KP_NUMBER_4  &Hold_Tap_KP_and_KP F5 KP_NUMBER_5        &Hold_Tap_KP_and_KP F6 KP_NUMBER_6         &kp PLUS   &kp ASTERISK  &trans
+&trans  &trans                &trans                &trans        &trans      &trans           &Hold_Tap_KP_and_KP F1 KP_NUMBER_1  &Hold_Tap_KP_and_KP F2 KP_NUMBER_2        &Hold_Tap_KP_and_KP F3 KP_NUMBER_3         &kp EQUAL  &kp PERIOD    &Hold_Tap_KP_and_KP RIGHT_CONTROL BACKSPACE
+                                                    &trans        &trans      &trans           &trans                              &kp KP_NUMBER_0                           &kp BACKSPACE
             >;
         };
     };
