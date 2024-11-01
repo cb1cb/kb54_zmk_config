@@ -1,67 +1,50 @@
-/*
- * Copyright (c) 2020 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
- */
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
 
 / {
-        keymap {
-                compatible = "zmk,keymap";
+    behaviors {
+        Hold_Tap_KP_and_KP: Hold_Tap_KP_and_KP {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_TAP_KP_AND_KP";
+            bindings = <&kp>, <&kp>;
 
-                default_layer {
-// -----------------------------------------------------------------------------------------
-// |   `  |  1  |  2  |  3  |  4  |  5  |   |  6  |  7   |  8  |  9  |  0  |  DEL |
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BSPC |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-                        bindings = <
-   &kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5    &kp N6 &kp N7 &kp N8    &kp N9  &kp N0   &kp DEL
-   &kp TAB   &kp Q  &kp W  &kp E  &kp R  &kp T     &kp Y  &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A  &kp S  &kp D  &kp F  &kp G     &kp H  &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z  &kp X  &kp C  &kp V  &kp B     &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                        &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
-                        >;
-                };
-
-                lower_layer {
-                    display-name = "LWR";
-                    label = "LWR";
-// -----------------------------------------------------------------------------------------
-// |   `  |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |  DEL |
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BSPC |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &kp GRAVE    &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                  &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp DEL
-   &kp TAB      &kp EXCL        &kp AT          &kp HASH        &kp DLLR        &kp PRCNT               &kp CARET   &kp AMPS    &kp ASTRK   &kp LPAR    &kp RPAR    &kp BSPC
-   &bt BT_CLR   &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4            &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &trans      &trans
-   &kp LSHFT    &trans          &trans          &trans          &trans          &trans                  &trans      &trans      &trans      &trans      &trans      &trans
-                                                &kp LGUI        &trans          &kp SPACE               &kp RET     &trans      &kp RALT
-                        >;
-                };
-
-                raise_layer {
-                    display-name = "RSE";
-                    label = "RSE";
-// -----------------------------------------------------------------------------------------
-// |   `  |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |  DEL |
-// |  TAB |     |VOL- |VOL+ | P/P | PRV |   | NXT | BR- | BR+ |  (  |  )  | BSPC |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &kp GRAVE &kp N1     &kp N2          &kp N3          &kp N4      &kp N5              &kp N6      &kp N7          &kp N8          &kp N9      &kp N0   &kp DEL
-   &kp  TAB  &trans     &kp C_VOL_DN    &kp C_VOL_UP    &kp C_PP    &kp C_PREV          &kp C_NEXT  &kp C_BRI_DN    &kp C_BRI_UP    &kp LPAR    &kp RPAR &kp BSPC
-   &kp LCTRL &trans     &trans          &trans          &trans      &trans              &kp MINUS   &kp EQUAL       &kp LBKT        &kp RBKT    &kp BSLH &kp GRAVE
-   &kp LSHFT &trans     &trans          &trans          &trans      &trans              &kp UNDER   &kp PLUS        &kp LBRC        &kp RBRC    &kp PIPE &kp TILDE
-                                        &kp LGUI        &trans      &kp SPACE           &kp RET     &trans          &kp RALT
-                        >;
-                };
+            #binding-cells = <2>;
+            hold-trigger-key-positions = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53>;
+            tapping-term-ms = <300>;
         };
+
+        Hold_Tap_LAYER_and_Tap: Hold_Tap_LAYER_and_Tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_TAP_LAYER_AND_TAP";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            hold-trigger-key-positions = <0 1 5 6 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53>;
+            tapping-term-ms = <300>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        layer_0 {
+            bindings = <
+&Hold_Tap_KP_and_KP EQUAL ESC  &kp Q         &kp W         &kp E                                  &kp R         &kp T                                     &kp Y                            &kp U                                 &kp I                               &kp O                                &kp P                                        &to 1
+&kp K_MUTE                     &kp A         &kp S         &kp D                                  &kp F         &kp G                                     &kp H                            &kp J                                 &kp K                               &kp L                                &Hold_Tap_KP_and_KP RC(V) RC(C)              &Hold_Tap_KP_and_KP RIGHT_BRACKET LEFT_BRACKET
+&kp LEFT_SHIFT                 &kp Z         &kp X         &kp C                                  &kp V         &kp B                                     &kp N                            &kp M                                 &Hold_Tap_KP_and_KP SQT COMMA       &Hold_Tap_KP_and_KP SEMICOLON COLON  &Hold_Tap_KP_and_KP RC(RG(O)) DOUBLE_QUOTES  &Hold_Tap_KP_and_KP RIGHT_SHIFT PERCENT
+&kp LEFT_CONTROL               &kp LEFT_ALT  &kp LEFT_WIN  &Hold_Tap_KP_and_KP AMPERSAND AT_SIGN  &kp QUESTION  &Hold_Tap_KP_and_KP EXCLAMATION PERIOD    &kp CAPSLOCK                     &Hold_Tap_KP_and_KP UNDERSCORE MINUS  &Hold_Tap_KP_and_KP BACKSLASH FSLH  &kp RIGHT_GUI                        &kp RIGHT_ALT                                &kp RIGHT_CONTROL
+                                                           &trans                                 &kp SPACE     &kp TAB                                   &Hold_Tap_LAYER_and_Tap 1 ENTER  &kp BSPC                              &trans
+            >;
+        };
+
+        layer_1 {
+            bindings = <
+&trans  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &trans        &trans     &kp C_AL_FILE_BROWSER    &Hold_Tap_KP_and_KP F10 DOLLAR      &Hold_Tap_KP_and_KP F11 LEFT_PARENTHESIS  &Hold_Tap_KP_and_KP F12 RIGHT_PARENTHESIS  &trans     &kp DELETE    &to 0
+&trans  &kp C_VOLUME_UP       &kp HOME              &kp UP_ARROW  &kp END    &kp PAGE_UP              &Hold_Tap_KP_and_KP F7 KP_NUMBER_7  &Hold_Tap_KP_and_KP F8 KP_NUMBER_8        &Hold_Tap_KP_and_KP F9 KP_NUMBER_9         &kp MINUS  &kp FSLH      &trans
+&trans  &kp C_VOL_DN          &kp LEFT              &kp DOWN      &kp RIGHT  &kp PAGE_DOWN            &Hold_Tap_KP_and_KP F4 KP_NUMBER_4  &Hold_Tap_KP_and_KP F5 KP_NUMBER_5        &Hold_Tap_KP_and_KP F6 KP_NUMBER_6         &kp PLUS   &kp ASTERISK  &trans
+&trans  &trans                &trans                &trans        &trans     &trans                   &Hold_Tap_KP_and_KP F1 KP_NUMBER_1  &Hold_Tap_KP_and_KP F2 KP_NUMBER_2        &Hold_Tap_KP_and_KP F3 KP_NUMBER_3         &kp EQUAL  &kp PERIOD    &Hold_Tap_KP_and_KP RIGHT_CONTROL BACKSPACE
+                                                    &trans        &trans     &trans                   &trans                              &kp KP_NUMBER_0                           &kp BACKSPACE
+            >;
+        };
+    };
 };
